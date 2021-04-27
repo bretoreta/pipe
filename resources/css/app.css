@@ -1,0 +1,11 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+.h-content {
+    min-height: 488px;
+    overflow-y: scroll;
+}
+
+.task__items::-webkit-scrollbar {
+    display: none;
+}
