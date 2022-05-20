@@ -16,13 +16,16 @@
             body::-webkit-scrollbar {
                 display: none;
             }
-    </style>
+        </style>
 
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-gray-900">
         @inertia
+        <div class="flex justify-center items-center py-5 -mt-16">
+            <p class="text-gray-500 font-bold tracking-wider uppercase">Infinity Labs @ 2022</p>
+        </div>
     </body>
 </html>

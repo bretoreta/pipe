@@ -8,9 +8,9 @@ use Inertia\Inertia;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $projects = auth()->user()->projects()->with('tasks')->get();
+        $projects = $request->user()->projects()->with('tasks')->get();
 
         return Inertia::render('Projects/Index', [
             'projects' => $projects,
@@ -22,19 +22,17 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
-            'color' => ['string', 'max:255'],
+            'color' => ['max:255'],
         ]);
 
         Project::create([
             'title' => $data['title'],
             'description' => $data['description'],
-            'color' => $data['color'],
-            'stage' => 0,
+            'color' => $data['color'] ?? '#0000',
             'user_id' => auth()->id(),
         ]);
 
-        // session()->flash('flash.banner', 'Project was added successfully!');
-        // session()->flash('flash.bannerStyle', 'success');
+        session()->flash('message', 'Successfully created new Project.');
 
         return redirect()->back();
     }
@@ -42,7 +40,7 @@ class ProjectController extends Controller
     public function tasks(Project $project)
     {
         $tasks = $project->tasks()->get();
-        // $projects = auth()->user()->projects()->with('tasks')->get();
+        session()->flash('message', 'Successfully retrieved Tasks.');
 
         return $tasks;
     }

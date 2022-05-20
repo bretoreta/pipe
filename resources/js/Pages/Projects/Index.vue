@@ -1,6 +1,6 @@
 <template>
 	<app-layout>
-		<div class="py-5 relative">
+		<div class="pt-5 relative">
 			<transition
 				enter-active-class="transition ease-in duration-150"
 				leave-active-class="transition ease-in-out duration-1000"
@@ -12,7 +12,7 @@
 					v-if="errorFlag"
 					class="errors__display absolute top-2 right-8"
 				>
-					<div class="bg-red-500 py-4 px-6 rounded shadow-2xl">
+					<div class="bg-red-500 py-4 px-6 rounded shadow-2xl max-w-sm">
 						<div class="flex items-center">
 							<p class="text-white text-sm font-bold">{{ errors }}</p>
 							<button
@@ -36,9 +36,9 @@
 					v-if="successFlag"
 					class="success__display absolute top-2 right-8"
 				>
-					<div class="bg-green-500 py-4 px-6 rounded shadow-2xl">
+					<div class="bg-green-500 py-4 px-6 rounded shadow-2xl max-w-sm">
 						<div class="flex items-center">
-							<p class="text-white text-sm font-bold">Request completed with status code 200</p>
+							<p class="text-white text-sm font-bold">{{ $page.props.flash.message }}</p>
 							<button
 								@click="successFlag = false"
 								class="icon px-3 py-1 rounded-md duration-200 text-green-800 ml-4 hover:text-white hover:bg-green-900"
@@ -50,21 +50,12 @@
 				</div>
 			</transition>
 			<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-				<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-					<div class="w-full bg-gray-900 shadow-lg pl-10 py-5 flex">
-						<div class="w-1/3">
+				<div class="bg-gray-900 overflow-hidden sm:rounded-lg">
+					<div class="w-full bg-gray-900 pl-10 pt-5 bloxk md:flex">
+						<div class="w-full md:w-1/3">
 							<div class="my-5">
 								<p class="text-xl text-white">Hi {{$page.props.user.name}}</p>
 								<span class="text-gray-500 uppercase text-sm">Let's make projects amazing!</span>
-							</div>
-							<div class="input pb-5">
-								<input
-									type="text"
-									name="searchTerm"
-									id="searchTerm"
-									placeholder="Search Projects..."
-									class="px-4 py-2 bg-white bg-opacity-10 rounded-lg shadow-lg placeholder-gray-400 text-white focus:ring-0 ring-0 outline-none duration-200 border-none focus:bg-opacity-30"
-								>
 							</div>
 							<div class="pb-5 w-full">
 								<div class="title pb-3 pr-6 flex items-center justify-between">
@@ -170,7 +161,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="w-2/3">
+						<div class="w-full md:w-2/3">
 							<div
 								v-if="!projectTasks"
 								class="py-4 px-6 bg-indigo-200 text-indigo-600 text-sm font-bold rounded-tl-2xl rounded-bl-2xl"
@@ -179,7 +170,7 @@
 							</div>
 							<div
 								v-if="projectTasks"
-								class="bg-white rounded-tl-xl rounded-bl-xl py-5"
+								class="bg-white rounded-tl-xl rounded-bl-xl py-8"
 							>
 								<task-items
 									:tasks="projectTasks"
@@ -324,12 +315,13 @@
 				axios
 					.get("/project/" + id + "/tasks")
 					.then((response) => {
+						this.errorFlag = false;
 						this.projectTasks = response.data;
 						this.successFlag = true;
 					})
 					.catch((errors) => {
 						this.errorFlag = true;
-						this.errors = errors.message;
+						this.errors = errors.response.data.message;
 					});
 				setTimeout(() => {
 					this.successFlag = false;
@@ -348,6 +340,30 @@
 					},
 					{ preserveScroll: true, preserveState: true }
 				);
+				setTimeout(() => {
+					this.successFlag = false;
+				}, 2000);
+				setTimeout(() => {
+					this.errorFlag = false;
+				}, 2000);
+			},
+			updateTask(taskId) {
+				axios
+					.put("/project/tasks/" + taskId, {
+						id: this.activeProject,
+						name: this.task.name,
+						description: this.task.description,
+					})
+					.then(() => {
+						this.successFlag = true;
+					})
+					.catch((errors) => {
+						this.errorFlag = true;
+						this.errors = errors.message;
+					});
+
+				this.getActiveProjectTasks(this.activeProject);
+				this.closeModal3();
 				setTimeout(() => {
 					this.successFlag = false;
 				}, 2000);
@@ -384,7 +400,7 @@
 </script>
 <style scoped>
 	.project__item__container {
-		height: 240px;
+		max-height: 500px;
 		overflow-y: scroll;
 	}
 	.project__item__container::-webkit-scrollbar {

@@ -37,6 +37,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Tasks management
     Route::get('/project/{project}/tasks', [ProjectController::class, 'tasks'])->name('projects.tasks');
     Route::post('/project/task', [TaskController::class, 'create'])->name('task.create');
+    Route::put('/project/tasks/{task}', [TaskController::class, 'update'])->name('task.update');
     Route::delete('/project/tasks/{task}', [TaskController::class, 'destroy'])->name('task.destroy');
     Route::post('/project/task/{task}/done', [TaskController::class, 'done'])->name('task.done');
     Route::post('/project/task/{task}/start', [TaskController::class, 'start'])->name('task.start');

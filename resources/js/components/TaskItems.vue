@@ -79,7 +79,7 @@
 											@click="startTask(task.id)"
 											class="text-sm uppercase font-bold px-2 py-1 bg-gray-200 hover:bg-indigo-200 hover:text-indigo-600 duration-200"
 										>Start</button>
-										<button class="text-sm uppercase font-bold px-2 py-1 bg-gray-200 hover:bg-green-200 hover:text-green-600 duration-200">Edit</button>
+										<!-- <button @click="editTask(task)" class="text-sm uppercase font-bold px-2 py-1 bg-gray-200 hover:bg-green-200 hover:text-green-600 duration-200">Edit</button> -->
 										<button
 											@click="deleteTask(task.id)"
 											class="text-sm uppercase font-bold px-2 py-1 bg-gray-200 hover:bg-red-200 hover:text-red-600 duration-200"
@@ -145,13 +145,16 @@
 						this.$emit("actionComplete");
 					});
 			},
+			editTask(task) {
+				this.$emit("editTask", task);
+			}
 		},
 	};
 </script>
 
 <style scoped>
 	.inner__tasks__container {
-		height: 300px;
+		max-height: 400px;
 		overflow-y: scroll;
 	}
 	.inner__tasks__container::-webkit-scrollbar {

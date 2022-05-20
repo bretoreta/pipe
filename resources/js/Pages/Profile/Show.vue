@@ -1,13 +1,13 @@
 <template>
     <app-layout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Profile
-            </h2>
-        </template>
-
         <div>
+            
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                <div class="py-5">
+                    <h2 class="font-semibold text-2xl text-white leading-tight">
+                        Profile
+                    </h2>
+                </div>
                 <div v-if="$page.props.jetstream.canUpdateProfileInformation">
                     <update-profile-information-form :user="$page.props.user" />
 
@@ -31,7 +31,7 @@
                 <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
                     <jet-section-border />
 
-                    <delete-user-form class="mt-10 sm:mt-0" />
+                    <delete-user-form class="mt-10 sm:mt-0 pb-8" />
                 </template>
             </div>
         </div>
