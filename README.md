@@ -11,26 +11,26 @@ I would like to mention that I have pretty many exciting updates in line for thi
 
 ## Using The Application
 
-For you to use the application you'll need to download it to your computer. This can be donw in to ways. If you gave **GIT** installed then you can follow the next step. If you don't have it installed please skip the following step.
+For you to use the application you'll need to download it to your computer. This can be done in to ways. If you gave **GIT** installed then you can follow the next step. If you don't have it installed please skip the following step.
 
 - Open the folder you wish the project to be located and open a new command prompt (WindowsOS) or Terminal(Linux/MacOS) there.
 - Type in the following command.
 
-<code>$~ git clone https://github.com/bremmurd/pipe.git</code>
+<code>git clone https://github.com/bremmurd/pipe.git</code>
 
-- After successfull completeion the project will be in the opened folder in a sub-folder called pipe.
+- After successfull completion the project will be in the opened folder in a sub-folder called pipe.
 
 If however you do not have **GIT** installed you can just download the project directly from here by clicking the code button and then click download zip file.
 
 Once you have the project you'll need to install the dependencies. Both **NPM** and **COMPOSER** need to be installed for this to work. If you haven't please do so. After installing both applicatons now run the following commands in order.
 
-<code>$~ composer install</code>
-<code>$~ npm install</code>
-<code>$~ npm run dev</code>
+<code>composer install</code>
+<code>npm install</code>
+<code>npm run dev</code>
 
 After a successful completion of the three, the application is ready to be served. To serve the application please run the following command in your terminal or command prompt.
 
-<code>$~ php artisan serve</code>
+<code>php artisan serve</code>
 
 Copy the address shown and open it in your browser, and there you go! The app should be now working! Please remember however to create a database named pipe in your database provider. You can change database related settings on the **.env** file.
 
