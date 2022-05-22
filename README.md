@@ -1,62 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## About PIPE
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+PIPE is an open source web application built using the Laravel Framework for managing simple stasks while keeping track of the same. The UI is 
+user friendly and easy to use. Currently it can do the bare minimum but as updates keep getting released it will support more features. It currently has the following features:
 
-## About Laravel
+- Simple, fast tasks proccessing.
+- Expressive, intuitive and elegant User Interface.
+- Simple Cookie-based User Management.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I would like tomention that I have pretty many exciting updates in line for this application, so constantly I will be updating it as I finish up the features I would like to add to it.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Using The Application
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+For you to use the application you'll need to download it to your computer. This can be donw in to ways. If you gave **GIT** installed then you can follow the next step. If you don't have it installed please skip the following step.
 
-## Learning Laravel
+- Open the folder you wish the project to be located and open a new command prompt (WindowsOS) or Terminal(Linux/MacOS) there.
+- Type in the following command.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<code>$~ git clone https://github.com/bremmurd/pipe</code>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- After successfull completeion the project will be in the opened folder in a sub-folder called pipe.
 
-## Laravel Sponsors
+If however you do not have **GIT** installed you can just download the project directly from here by clicking the code button and then click download zip file.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Once you have the project you'll need to install the dependencies. Both **NPM** and **COMPOSER** need to be installed for this to work. If you haven't please do so. After installing both applicatons now run the following commands in order.
 
-### Premium Partners
+<code>$~ composer install</code>
+<code>$~ npm install</code>
+<code>$~ npm run dev</code>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+After a successful completion of the three, the application is ready to be served. To serve the application please run the following command in your terminal or command prompt.
+
+<code>$~ php artisan serve</code>
+
+Copy the address shown and open it in your browser, and there you go! The app should be now working! Please remember however to create a database named pipe in your database provider. You can change database related settings on the **.env** file.
+
+## PIPE Sponsors
+
+I sadly do not have any sponsors at the momment however if you like my work and would like to sponsor me you can reach me through my personal email via [bremmurd08@gmail.com](mailto:bremmurd08@gmail.com)
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The application is open for any contributors and I highly welcome any new ideas for the app
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within PIPE, please send an e-mail to Bret Oreta via [bretoreta@gmail.com](mailto:bretoreta@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The PIPE application is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

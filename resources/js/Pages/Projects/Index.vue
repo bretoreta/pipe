@@ -38,7 +38,7 @@
 				>
 					<div class="bg-green-500 py-4 px-6 rounded shadow-2xl max-w-sm">
 						<div class="flex items-center">
-							<p class="text-white text-sm font-bold">{{ $page.props.flash.message }}</p>
+							<p class="text-white text-sm font-bold">{{ $page.props.flash.message ?? 'Operation executed successfully' }}</p>
 							<button
 								@click="successFlag = false"
 								class="icon px-3 py-1 rounded-md duration-200 text-green-800 ml-4 hover:text-white hover:bg-green-900"
@@ -285,6 +285,11 @@
 				addingTask: false,
 			};
 		},
+		mounted() {
+			this.activeProject = sessionStorage.getItem('activeProject') ?? null;
+
+			if(this.activeProject) this.getActiveProjectTasks(this.activeProject);
+		},
 		methods: {
 			closeModal() {
 				this.addingProject = false;
@@ -305,6 +310,7 @@
 			},
 			setActiveProject(id) {
 				this.activeProject = id;
+				sessionStorage.setItem('activeProject', id);
 
 				this.getActiveProjectTasks(id);
 			},

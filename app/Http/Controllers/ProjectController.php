@@ -10,10 +10,8 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        $projects = $request->user()->projects()->with('tasks')->get();
-
         return Inertia::render('Projects/Index', [
-            'projects' => $projects,
+            'projects' => $request->user()->projects()->with('tasks')->get(),
         ]);
     }
 
