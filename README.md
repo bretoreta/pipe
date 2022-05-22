@@ -7,7 +7,7 @@ user friendly and easy to use. Currently it can do the bare minimum but as updat
 - Expressive, intuitive and elegant User Interface.
 - Simple Cookie-based User Management.
 
-I would like tomention that I have pretty many exciting updates in line for this application, so constantly I will be updating it as I finish up the features I would like to add to it.
+I would like to mention that I have pretty many exciting updates in line for this application, so constantly I will be updating it as I finish up the features I would like to add to it.
 
 ## Using The Application
 
